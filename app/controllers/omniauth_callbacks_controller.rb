@@ -5,7 +5,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # userレコードが既に保存されているか
     if user.persisted?
       # ログインに成功
-      flash.notice = "ログインしました!!"
       sign_in_and_redirect user
     else
       # ログインに失敗し、サインイン画面に遷移
