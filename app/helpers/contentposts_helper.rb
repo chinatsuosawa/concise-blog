@@ -1,0 +1,2 @@
+module ContentpostsHelper
+end

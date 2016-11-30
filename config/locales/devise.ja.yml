@@ -64,8 +64,29 @@ ja:
   activerecord:
     attributes:
       user:
-        name: 名前
-        username: ユーザー名
-        password: パスワード
-        password_confirmation: パスワード確認
-        email: メールアドレス
+        name: "名前"
+        username: "ユーザー名"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        email: "メールアドレス"
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one:   "1分以内"
+        other: "%{count}分以内"
+      x_minutes:
+        one:   "1分前"
+        other: "%{count}分前"
+      about_x_hours:
+        one:   "約1時間"
+        other: "約%{count}時間前"
+      x_days:
+        one:   "約1日前"
+        other: "約%{count}日前"
+      x_months:
+        one:   "約1ヶ月前"
+        other: "約%{count}ヶ月前"
+      almost_x_years:
+        one:   "約1年前"
+        other: "約%{count}年前"
+      

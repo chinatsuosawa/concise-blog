@@ -1,0 +1,12 @@
+<p>
+  <strong>タイトル：</strong>
+  <%= @contentpost.title %>
+</p>
+ 
+<p>
+  <strong>内容：</strong>
+  <%= @contentpost.content %>
+</p>
+
+<%= link_to '戻る', contentposts_path %> | 
+<%= link_to '編集', edit_contentpost_path(@contentpost) %>
