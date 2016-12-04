@@ -7,14 +7,13 @@ class ContentpostsController < ApplicationController
   end
 
   def index
-    contentpost_master = Contentpost.where(user_id: current_user.id)
+    contentpost_master = Contentpost.where(user_id: current_user.id).order(created_at: :desc)
     @q = contentpost_master.search(params[:q])
-    @contentposts = @q.result(distinct: true)
+    @contentposts = @q.result(distinct: true).page(params[:page])
   end
 
   def create
     @contentpost = current_user.contentposts.build(content_params)
-    #@contentpost = Contentpost.new(content_params)
     if @contentpost.save
       redirect_to @contentpost
     else

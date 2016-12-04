@@ -1,41 +1,27 @@
-<div class="pagetitle">
-  <h1>投稿一覧</h1>
-  <%= link_to '新規投稿', new_contentpost_path, class: "btn btn-success" %>
-  <h3>Contentposts (<%= current_user.contentposts.count %>)</h3>
-</div>
-
-  <ul class="contentposts">
-  <% @contentposts.each do |contentpost| %>
-    <li>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <span class="user">
-            <%= link_to contentpost.user.username, contentpost.user %>
-          </span>
-          <span class="title">
-            <%= contentpost.title %>
-          </span>
-        </div>
-        <div class="panel-body">
-          <span class="content">
-            <%= contentpost.content %>
-          </span>
-        </div>
-        <div class="panel-footer">
-          <span class="show">
-            <%= link_to '詳細', contentpost %>
-          </span>
-          <% if current_user == contentpost.user %>
-            <span class="update">
-               | <%= link_to '編集', edit_contentpost_path(contentpost) %>
-            </span>
-            <span class="delete">
-               | <%= link_to "削除", contentpost_path(contentpost), method: :delete,
-                                                 data: { confirm: "削除してよろしいですか？" } %>
-            </span>
-          <% end %>
-        </div>
+<%= link_to '新規投稿', new_contentpost_path, class: "btn btn-success" %>
+<%= paginate @contentposts %>
+<% @contentposts.each do |contentpost| %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <span class="user">
+          <%= link_to contentpost.user.id, contentpost.user %>
+        </span>
+        <span class="title">
+          <%= contentpost.title %>
+        </span>
       </div>
-    </li>
-  <% end %>
-</ul>
+      <div class="panel-body">
+        <span class="content">
+          <%= contentpost.content %>
+        </span>
+      </div>
+      <div class="panel-footer">
+        <%= link_to '詳細', contentpost %>
+        <% if current_user == contentpost.user %>
+             | <%= link_to '編集', edit_contentpost_path(contentpost) %>
+             | <%= link_to "削除", contentpost_path(contentpost), method: :delete,
+                                               data: { confirm: "削除してよろしいですか？" } %>
+        <% end %>
+      </div>
+    </div>
+<% end %>

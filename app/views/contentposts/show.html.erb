@@ -1,12 +1,26 @@
-<p>
-  <strong>タイトル：</strong>
-  <%= @contentpost.title %>
-</p>
- 
-<p>
-  <strong>内容：</strong>
-  <%= @contentpost.content %>
-</p>
+<div class="col-sm-offset-2 col-sm-8">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <span class="title">
+        <%= @contentpost.title %>
+      </span>
+    </div>
+    <div class="panel-body">
+      <span class="content">
+        <%= @contentpost.content %>
+      </span>
+    </div>
+    <% if current_user == @contentpost.user %>
+    <div class="panel-footer">
+      <span class="update">
+         <%= link_to '編集', edit_contentpost_path(@contentpost) %>
+      </span>
+      <span class="delete">
+         | <%= link_to "削除", contentpost_path(@contentpost), method: :delete,
+                                           data: { confirm: "削除してよろしいですか？" } %>
+      </span>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to '戻る', contentposts_path %> | 
-<%= link_to '編集', edit_contentpost_path(@contentpost) %>

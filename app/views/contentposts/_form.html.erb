@@ -1,32 +1,29 @@
-<div class="row">
-  <aside class="col-md-10">
-    <section class="contentpost_form">
-      <%= form_for @contentpost do |f| %>
-        <% if @contentpost.errors.any? %>
-          <div id="error_explanation">
-            <h2>
-              <%= @contentpost.errors.count %>件のエラーが発生したため保存ができませんでした。
-            </h2>
-            <ul>
-              <% @contentpost.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+<section class="contentpost_form">
+  <%= form_for @contentpost do |f| %>
+    <% if @contentpost.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= @contentpost.errors.count %>件のエラーが発生したため保存ができませんでした。
+        </h2>
+        <ul>
+          <% @contentpost.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-        <div class="form-group">
-          <%= f.label :title, "タイトル", class: 'label label-primary' %></br>
-          <%= f.text_field :title, class: 'form-control', :rows => 10 %>
-        </div>
-        <div class="form-group">
-          <%= f.label :content, "内容", class: 'label label-primary'  %></br>
-          <%= f.text_area :content, class: 'form-control', :rows => 10, placeholder: "Compose new mypost..." %>
-        </div>
-        <div class="actions">
-          <%= f.submit "更新", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
-</div>
+    <div class="form-group">
+      <%= f.label :title, "タイトル", class: 'label label-primary' %></br>
+      <%= f.text_field :title, class: 'form-control', :rows => 10 %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content, "内容", class: 'label label-primary'  %></br>
+      <%= f.text_area :content, class: 'form-control', :rows => 10, placeholder: "Compose new mypost..." %>
+    </div>
+    <div class="actions">
+      <%= f.submit "更新", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>
+
