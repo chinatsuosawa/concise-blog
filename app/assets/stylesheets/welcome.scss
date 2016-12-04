@@ -2,6 +2,15 @@ body.container {
 
 }
 
+.pagetitle {
+  overflow: auto;
+}
+
+.pagetitle h1 {
+  float: left;
+}
+
+
 ul.contentposts {
   list-style: none;
 }
@@ -12,10 +21,6 @@ ul.contentposts {
 
 .panel-footer{
   text-align: right;
-}
-
-user a {
-  color: #FFFFFF;
 }
 
 footer {

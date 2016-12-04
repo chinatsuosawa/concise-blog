@@ -1,6 +1,9 @@
-<h1>投稿一覧</h1>
+<div class="pagetitle">
+  <h1>投稿一覧</h1>
+  <%= link_to '新規投稿', new_contentpost_path, class: "btn btn-success" %>
   <h3>Contentposts (<%= current_user.contentposts.count %>)</h3>
-  <%= link_to '新規投稿', new_contentpost_path %>
+</div>
+
   <ul class="contentposts">
   <% @contentposts.each do |contentpost| %>
     <li>
