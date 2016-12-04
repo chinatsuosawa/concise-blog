@@ -55,11 +55,17 @@ class User < ActiveRecord::Base
   # 1人のユーザーは複数の投稿を持つことができる
   has_many :contentposts
 
-  # フォロー機能設定
+  # ユーザーがフォローしているアカウントを取得（フォロー）
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
   has_many :following_users, through: :following_relationships, source: :followed
+
+  # ユーザーをフォローしているアカウントを取得（フォロワー）
+  has_many :follower_relationships, class_name:  "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent:   :destroy
+  has_many :follower_users, through: :follower_relationships, source: :follower
 
   # 他のユーザーをフォローする
   def follow(other_user)
@@ -76,5 +82,4 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
-
 end

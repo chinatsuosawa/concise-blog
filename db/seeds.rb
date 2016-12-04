@@ -36,5 +36,15 @@ users = User.order(:created_at).take(6)
 end
 puts "\n-> Contentpost_seeds OK!!"
 
+# リレーションシップ
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed); print "." }
+puts "\n-> Following_seeds OK!!"
+followers.each { |follower| follower.follow(user); print "." }
+puts "\n-> Follower_seeds OK!!"
+
 # データ作成終了　コメント
 puts "\n=> All_seeds OK!!"

@@ -1,10 +1,9 @@
-<%= link_to '新規投稿', new_contentpost_path, class: "btn btn-success" %>
-<%= paginate @contentposts %>
+<%= link_to '新規投稿', new_contentpost_path, class: "btn btn-success btn-shinki" %>
 <% @contentposts.each do |contentpost| %>
     <div class="panel panel-primary">
       <div class="panel-heading">
         <span class="user">
-          <%= link_to contentpost.user.id, contentpost.user %>
+          <%= link_to contentpost.user.username, contentpost.user %>
         </span>
         <span class="title">
           <%= contentpost.title %>
@@ -25,3 +24,4 @@
       </div>
     </div>
 <% end %>
+<%= paginate @contentposts %>

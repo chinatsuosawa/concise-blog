@@ -11,9 +11,11 @@
         <td><%= @user.email %></td>
       </tr>
     </table>
+    <%= link_to "followings", followings_user_path(@user) %>
+     | <%= link_to "followers", followers_user_path(@user) %>
+    <%= render 'follow_form' %>
     <% if current_user==@user %> 
-      <%= render 'follow_form' if user_signed_in? %>
-    　<%= link_to 'プロフィール変更', edit_user_registration_path %>
+     | <%= link_to 'プロフィール変更', edit_user_registration_path %>
     <% end %>
   </div>
 </div>
